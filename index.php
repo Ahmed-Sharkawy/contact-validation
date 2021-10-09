@@ -6,26 +6,8 @@
         $email = $_POST['email'];
         $phone = $_POST['phone'];
         $Message = $_POST['Message'];
-        $ErrorUsername = "";
-        $ErrorEmail = "";
-        $ErrorPhone = "";
-        $ErrorMessage = "";
 
-        if (strlen($username) == 0) {
-            $ErrorUsername = "A field cannot be left username blank";
-        }
-        if (strlen($email) == 0) {
-            $ErrorEmail = "A field cannot be left email blank";
-        }
-        if(strlen($phone) == 0){
-            $ErrorPhone = "A field cannot be left phone blank";
-        }
-        if (strlen($Message) == 0){
-            $ErrorMessage = "A field cannot be left Message blank";
-        }
-
-
-        /*$formEroores = [];
+        $formEroores = [];
 
         if (strlen($username) == 0) {
             $formEroores[] = "A field cannot be left username blank";
@@ -38,7 +20,7 @@
         }
         if (strlen($Message) == 0) {
             $formEroores[] = "A field cannot be left Message blank";
-        }*/
+        }
     }
 ?>
 
@@ -64,38 +46,18 @@
             <h1 class="text-center">Contact Me</h1>
             <div class="formEroores">
                 <?php
-                    /*if (isset($formEroores)) {
+                    if (isset($formEroores)) {
                         foreach ($formEroores as $Eroor) {
                             echo $Eroor . "<br>";
                         };
-                    };*/
+                    };
                 ?>
             </div>
             <form action="index.php" method="POST">
                 <input class="form-control" type="text" name="username" placeholder="username">
-                <?php 
-                    if (isset($ErrorUsername)) {
-                        echo $ErrorUsername;
-                    }
-                ?>
                 <input class="form-control" type="email" name="email" placeholder="email">
-                <?php
-                    if (isset($ErrorEmail)) {
-                        echo $ErrorEmail;
-                    }
-                ?>
                 <input class="form-control" type="text" name="phone" placeholder="phone">
-                <?php
-                    if (isset($ErrorPhone)) {
-                        echo $ErrorPhone;
-                    }
-                ?>
                 <textarea class="form-control" name="Message" placeholder="Your Message"></textarea>
-                <?php
-                    if(isset($ErrorMessage)){
-                        echo $ErrorMessage;
-                    }
-                ?>
                 <input class="btn btn-success btn-block" type="submit" value="send Message">
             </form>
         </section>

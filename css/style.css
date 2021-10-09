@@ -1,0 +1,19 @@
+body {
+    margin: 20px;
+    background-color: aliceblue;
+}
+
+form {
+    max-width: 700px;
+    margin: 10px auto;
+}
+
+form input,
+form textarea {margin-bottom: 10px;}
+
+form textarea {height: 200px !important;}
+
+.formEroores {
+    text-align: center;
+    font-size: 20px;
+}

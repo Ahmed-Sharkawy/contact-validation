@@ -6,6 +6,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];
     $phone = $_POST['phone'];
     $Message = $_POST['Message'];
+    // $username = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
+    // $email = filter_var($_POST['email'], FILTER_SANITIZE_STRING);
+    // $phone = filter_var($_POST['phone'], FILTER_SANITIZE_STRING);;
+    // $Message = filter_var($_POST['Message'], FILTER_SANITIZE_STRING);;
 
     $formEroores = [];
 
@@ -58,10 +62,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     ?>
                 </div>
             <?php } ?>
-            <input class="form-control" type="text" name="username" placeholder="username">
-            <input class="form-control" type="email" name="email" placeholder="email">
-            <input class="form-control" type="text" name="phone" placeholder="phone">
-            <textarea class="form-control" name="Message" placeholder="Your Message"></textarea>
+            <input class="form-control" type="text" name="username" placeholder="username" value="<?php if (isset($username)){echo $username;}?>">
+            <input class="form-control" type="email" name="email" placeholder="email" value="<?php if(isset($email)){echo $email;} ?>">
+            <input class="form-control" type="text" name="phone" placeholder="phone" value="<?php if(isset($phone)){echo $phone;} ?>">
+            <textarea class="form-control" name="Message" placeholder="Your Message"><?php if (isset($Message)) {echo $Message;}?></textarea>
             <input class="btn btn-success btn-block" type="submit" value="send Message">
         </form>
     </section>

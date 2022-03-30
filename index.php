@@ -2,14 +2,14 @@
 // require "index.html";
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    $username = $_POST['username'];
-    $email = $_POST['email'];
-    $phone = $_POST['phone'];
-    $Message = $_POST['Message'];
-    // $username = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
-    // $email = filter_var($_POST['email'], FILTER_SANITIZE_STRING);
-    // $phone = filter_var($_POST['phone'], FILTER_SANITIZE_STRING);;
-    // $Message = filter_var($_POST['Message'], FILTER_SANITIZE_STRING);;
+//     $username = $_POST['username'];
+//     $email = $_POST['email'];
+//     $phone = $_POST['phone'];
+//     $Message = $_POST['Message'];
+    $username = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
+    $email = filter_var($_POST['email'], FILTER_SANITIZE_STRING);
+    $phone = filter_var($_POST['phone'], FILTER_SANITIZE_STRING);
+    $Message = filter_var($_POST['Message'], FILTER_SANITIZE_STRING);
 
     $formEroores = [];
 

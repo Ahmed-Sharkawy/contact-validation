@@ -6,20 +6,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 //     $email = $_POST['email'];
 //     $phone = $_POST['phone'];
 //     $Message = $_POST['Message'];
-    $username = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
-    $email = filter_var($_POST['email'], FILTER_SANITIZE_STRING);
-    $phone = filter_var($_POST['phone'], FILTER_SANITIZE_STRING);
-    $Message = filter_var($_POST['Message'], FILTER_SANITIZE_STRING);
+    $username = filter_var(trim($_POST['username']), FILTER_SANITIZE_STRING);
+    $email = filter_var(trim($_POST['email']), FILTER_SANITIZE_STRING);
+    $phone = filter_var(trim($_POST['phone']), FILTER_SANITIZE_STRING);
+    $Message = filter_var(trim($_POST['Message']), FILTER_SANITIZE_STRING);
 
     $formEroores = [];
 
     if (strlen($username) == 0) {
         $formEroores[] = "A field cannot be left <strong>username!</strong> blank";
     }
-    if (strlen($email) == 0) {
+    if (strlen($email) == 0 ) {
         $formEroores[] = "A field cannot be left <strong>email!</strong> blank";
     }
-    if (strlen($phone) == 0) {
+    if (strlen($phone) == 0 || !is_numeric($phone)) {
         $formEroores[] = "A field cannot be left <strong>phone!</strong> blank";
     }
     if (strlen($Message) == 0) {
@@ -55,11 +55,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                    <?php
+                <?php
                     foreach ($formEroores as $Eroor) {
                         echo $Eroor . "<br>";
                     };
-                    ?>
+                ?>
                 </div>
             <?php } ?>
             <input class="form-control" type="text" name="username" placeholder="username" value="<?php if (isset($username)){echo $username;}?>">
